@@ -1,0 +1,14 @@
+.jumbotron {
+    background-color: #7d4731;
+    color: #fff;
+    text-align: center;
+}
+.card-header {
+    background-color:  #377ab3;
+    color: #fff;
+}
+
+.card {
+    margin-bottom: 40px;
+    border: #377ab3 1px solid;
+}

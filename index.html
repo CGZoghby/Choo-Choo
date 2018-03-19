@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- Custom styles -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Link to Moment.js should go here -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Link to javascript, has been tested so I know the pathing is correct -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+    <title>train Timesheets</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <div class="jumbotron">
+                    <h1>Anytime is Train Time</h1>
+                    <p class="lead">Choo Choo. Chee Chee.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Current trains
+                    </div>
+                    <!-- This div for table population -->
+                    <div id="articles-div" class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody id="trains">
+                                <!-- Function that builds html for each object in the array -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Add Train
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="search-term">Train Name</label>
+                                <input type="text" class="form-control" id="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="search-term">Destination</label>
+                                <input type="text" class="form-control" id="Destination">
+                            </div>
+                            <div class="form-group">
+                                <label for="start-year">First Train Time (HH:mm - military time)</label>
+                                <input type="text" class="form-control" id="StartTime">
+                            </div>
+                            <div class="form-group">
+                                <label for="end-year">Frequency (min)</label>
+                                <input type="number" class="form-control" id="Frequency">
+                            </div>
+                            <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
