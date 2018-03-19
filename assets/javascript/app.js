@@ -14,10 +14,10 @@ $(document).ready(function () {
     var database = firebase.database();
 
     var train = {
-        StartTime: "",
         Name: "",
         Destination: "",
         Frequency: 0,
+        StartTime: "",
     };
 
     //Need train name, destination, start time, and frequency in minutes
@@ -34,14 +34,14 @@ $(document).ready(function () {
             //then take those minutes away, and add them to the current moment, and arrive at the next train arrival time
             nextArrival = moment().add(minsAway, "minutes").format("hh:mm A"),
             //add it all to a nice big row using template literals, and dance as we send trains on their merry way
-            row = ` <tr>
+            row = ` <tr id=${train.Name}>
                     <td>${train.Name}</td>
                     <td>${train.Destination}</td>
                     <td>${train.Frequency}</td>
                     <td>${nextArrival}</td>
                     <td>${minsAway}</td>
                 </tr>`;
-        $("#trains").prepend(row);
+        $("#trains").append(row);
     };
 
     database.ref().on("child_added", function (childSnapshot) {
@@ -49,6 +49,19 @@ $(document).ready(function () {
         //need to index through children and update them to database
     });
 
+    //maybe create an updateRow function that is called instead if the train row already exists in the DOM?
+
+    //function updateRow() {
+    //    database.ref().on("child_added", function (childSnapshot) {
+    //       //Somehow single out and update nextArrival and minsAway with nothing else updating, no new rows or anything
+    //        console.log("database updated!")
+    //    });
+    //};
+
+    //clearInterval(int);
+    //var int = setInterval(updateRow, 60 * 1000);
+
+    //button to submit new trains
     $("#submit").on("click", function (event) {
         event.preventDefault();
         $.each(train, function (index, value) {
